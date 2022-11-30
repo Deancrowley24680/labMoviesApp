@@ -25,7 +25,7 @@ const MoviesContextProvider = (props) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
   };
 
-  return (
+ return (
     <MoviesContext.Provider
       value={{
         favourites,
