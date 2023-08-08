@@ -9,6 +9,9 @@ const UpcomingMoviesPage = (props) => {
   
   const { data, error, isLoading, isError } = useQuery('upcoming', getUpcomingMovies);
 
+  console.log("Fetched data:", data);
+
+
   if (isLoading) {
     return <Spinner />
   }

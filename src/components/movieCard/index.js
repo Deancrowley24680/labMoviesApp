@@ -1,4 +1,4 @@
-import React, { useContext  } from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -18,24 +18,40 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import PlayListAddIcon from "@mui/icons-material/PlaylistAdd";
 
 export default function MovieCard({ movie, action }) {
-  const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { favourites, addToFavourites, mustWatch, addMustWatch, removeFromMustWatch } = useContext(MoviesContext);
  
-   if (favourites.find((id) => id === movie.id)) {
-     movie.favourite = true;
-   } else {
-     movie.favourite = false
-   }
+  if (favourites.find((id) => id === movie.id)) {
+    movie.favourite = true;
+  } else {
+    movie.favourite = false;
+  }
+
+  if (mustWatch.find((id) => id === movie.id)) {
+    movie.mustWatch = true;
+  } else {
+    movie.mustWatch = false;
+  }
  
-   const handleAddToFavourite = (e) => {
-     e.preventDefault();
-     addToFavourites(movie);
-   };
+  const handleAddToFavourite = (e) => {
+    e.preventDefault();
+    addToFavourites(movie);
+  };
+
+  const handleAddToMustWatch = (e) => {
+    e.preventDefault();
+    addMustWatch(movie);
+    console.log(mustWatch);
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          movie.favourite ? (
+          movie.mustWatch ? (
+            <Avatar sx={{ backgroundColor: 'green' }}>
+              <PlayListAddIcon />
+            </Avatar>
+          ) : movie.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
@@ -56,18 +72,16 @@ export default function MovieCard({ movie, action }) {
         }
       />
       <CardActions disableSpacing>
-      {action(movie)}
-
-      <IconButton color="primary">
-      <PlayListAddIcon />
-      </IconButton>
-
-      <Link to={`/movies/${movie.id}`}>
-        <Button variant="outlined" size="medium" color="primary">
-          More Info ...
-        </Button>
-      </Link>
-    </CardActions>
+        {action(movie)}
+        <IconButton color="primary" onClick={handleAddToMustWatch}>
+          <PlayListAddIcon />
+        </IconButton>
+        <Link to={`/movies/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+        </Link>
+      </CardActions>
     </Card>
   );
 }
