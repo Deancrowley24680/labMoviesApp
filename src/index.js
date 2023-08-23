@@ -7,6 +7,7 @@ import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import PopularMoviesPage from "./pages/popularMoviesPage";
+import PopularActorsPage from "./pages/popularActorsPage";
 import SiteHeader from './components/siteHeader';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -30,6 +31,7 @@ const App = () => {
       <SiteHeader />
       <MoviesContextProvider>
       <Routes>
+        <Route path="/person/popular-actors" element={<PopularActorsPage />} />
         <Route path="/movies/popular" element={<PopularMoviesPage />} />
         <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
         <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
