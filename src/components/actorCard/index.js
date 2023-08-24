@@ -23,13 +23,6 @@ export default function ActorCard({ actor }) {
         sx={{ height: 500 }}
         image={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
       />
-      <CardActions disableSpacing>
-        <Link to={`/actors/${actor.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
-        </Link>
-      </CardActions>
     </Card>
   );
 }
