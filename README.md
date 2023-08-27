@@ -1,4 +1,4 @@
-# Web App Development Assignment 2 - Movies App (20089889)
+# Web App Development 2 Assignment 1 - Movies App (20089889)
 
 This app displays information about various movies, TV shows and actors by using the API from Movies DB found @ https://www.themoviedb.org/
 
