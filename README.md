@@ -4,7 +4,18 @@ This app displays information about various movies, TV shows and actors by using
 
 # How to Deploy
 
-This app can be deployed locally and found using a localhost address, for example http://localhost:3000/
+
+```bat
+git clone https://github.com/Deancrowley24680/labMoviesApp.git
+```
+
+```bat
+git checkout master
+```
+
+```bat
+npm install
+```
 
 # Functionality
 
